@@ -48,6 +48,13 @@ const services = [
 
 const processSteps = ['Position the offer', 'Design the page', 'Capture the lead'];
 
+const socialLinks = [
+  { name: 'LinkedIn', href: 'https://www.linkedin.com', icon: 'linkedin' },
+  { name: 'Facebook', href: 'https://www.facebook.com', icon: 'facebook' },
+  { name: 'Instagram', href: 'https://www.instagram.com', icon: 'instagram' },
+  { name: 'X', href: 'https://x.com', icon: 'x' },
+];
+
 const initialValues: FormValues = {
   name: '',
   email: '',
@@ -148,7 +155,7 @@ function App() {
           </div>
           <a
             href="#contact"
-            className="rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-brand-700"
+            className="cta-shine rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-brand-700 active:translate-y-0"
           >
             Get a Free Quote
           </a>
@@ -172,7 +179,7 @@ function App() {
               <div className="mt-8 flex animate-fade-up flex-col gap-3 [animation-delay:320ms] sm:flex-row">
                 <a
                   href="#contact"
-                  className="rounded-lg bg-brand-600 px-6 py-3.5 text-center font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:-translate-y-0.5 hover:bg-brand-700"
+                  className="cta-shine animate-pulse-soft rounded-lg bg-brand-600 px-6 py-3.5 text-center font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:-translate-y-0.5 hover:bg-brand-700 active:translate-y-0"
                 >
                   Get Started
                 </a>
@@ -202,6 +209,9 @@ function App() {
                 <span>Contractors</span>
                 <span>Consultants</span>
                 <span>Local services</span>
+              </div>
+              <div className="mt-7 flex animate-fade-up items-center gap-3 [animation-delay:520ms]">
+                <SocialLinks />
               </div>
             </div>
 
@@ -252,7 +262,7 @@ function App() {
                         <div className="mt-3 space-y-3">
                           {['Clear headline', 'Trust proof', 'Contact form'].map((item) => (
                             <div key={item} className="flex items-center gap-3 text-sm font-medium text-navy">
-                              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                              <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-emerald-400" />
                               {item}
                             </div>
                           ))}
@@ -278,6 +288,7 @@ function App() {
                 <article
                   key={benefit.title}
                   className="animate-fade-up rounded-xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft"
+                  style={{ animationDelay: `${benefits.indexOf(benefit) * 110}ms` }}
                 >
                   <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-600">
                     {benefit.metric}
@@ -313,7 +324,11 @@ function App() {
               </p>
               <div className="mt-7 grid gap-4 sm:grid-cols-3">
                 {processSteps.map((item, index) => (
-                  <div key={item} className="rounded-lg bg-slate-50 p-4">
+                  <div
+                    key={item}
+                    className="animate-fade-up rounded-lg bg-slate-50 p-4 transition duration-300 hover:-translate-y-1 hover:bg-brand-50"
+                    style={{ animationDelay: `${index * 120}ms` }}
+                  >
                     <span className="text-sm font-bold text-brand-600">0{index + 1}</span>
                     <p className="mt-2 text-sm font-semibold text-navy">{item}</p>
                   </div>
@@ -335,6 +350,7 @@ function App() {
                 <article
                   key={service.title}
                   className="group animate-fade-up rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-100 hover:shadow-soft"
+                  style={{ animationDelay: `${services.indexOf(service) * 95}ms` }}
                 >
                   <div className="mb-5 h-1.5 w-14 rounded-full bg-brand-600 transition-all duration-300 group-hover:w-20" />
                   <h3 className="text-lg font-bold text-navy">{service.title}</h3>
@@ -356,14 +372,14 @@ function App() {
               </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-xl border border-slate-200 bg-white p-7 shadow-sm">
+              <div className="animate-fade-up rounded-xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
                 <p className="text-4xl font-bold text-navy">3.4x</p>
                 <p className="mt-2 font-semibold text-slate-700">clearer call-to-action density</p>
                 <p className="mt-3 leading-7 text-slate-600">
                   Repeated quote and consultation prompts help prospects take action without hunting.
                 </p>
               </div>
-              <div className="rounded-xl border border-slate-200 bg-white p-7 shadow-sm">
+              <div className="animate-fade-up rounded-xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft [animation-delay:120ms]">
                 <p className="text-4xl font-bold text-navy">0</p>
                 <p className="mt-2 font-semibold text-slate-700">backend required for the demo</p>
                 <p className="mt-3 leading-7 text-slate-600">
@@ -375,7 +391,7 @@ function App() {
         </section>
 
         <section className="px-5 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-6xl rounded-2xl bg-navy px-6 py-12 text-center shadow-soft sm:px-10">
+          <div className="mx-auto max-w-6xl animate-fade-up rounded-2xl bg-navy px-6 py-12 text-center shadow-soft sm:px-10">
             <h2 className="text-3xl font-bold text-white sm:text-4xl">
               Ready to Turn Visitors Into Customers?
             </h2>
@@ -384,7 +400,7 @@ function App() {
             </p>
             <a
               href="#contact"
-              className="mt-8 inline-flex rounded-lg bg-white px-6 py-3.5 font-semibold text-navy shadow-lg transition hover:-translate-y-0.5 hover:bg-brand-50"
+              className="mt-8 inline-flex rounded-lg bg-white px-6 py-3.5 font-semibold text-navy shadow-lg transition hover:-translate-y-0.5 hover:bg-brand-50 active:translate-y-0"
             >
               Request a Free Consultation
             </a>
@@ -419,7 +435,7 @@ function App() {
             </div>
 
             <form
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft sm:p-8"
+              className="animate-fade-up rounded-2xl border border-slate-200 bg-white p-6 shadow-soft sm:p-8"
               onSubmit={handleSubmit}
               noValidate
             >
@@ -456,7 +472,7 @@ function App() {
               </div>
               <button
                 type="submit"
-                className="mt-6 w-full rounded-lg bg-brand-600 px-6 py-3.5 font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-brand-700"
+                className="cta-shine mt-6 w-full rounded-lg bg-brand-600 px-6 py-3.5 font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-brand-700 active:translate-y-0"
               >
                 Submit Message
               </button>
@@ -482,6 +498,9 @@ function App() {
             <p className="mt-2 text-blue-100">
               Modern websites that help small businesses earn more leads.
             </p>
+            <div className="mt-5">
+              <SocialLinks variant="dark" />
+            </div>
           </div>
           <div className="text-sm leading-7 text-blue-100 md:text-right">
             <p>info@yourcompany.com</p>
@@ -545,6 +564,70 @@ function Field({
         </span>
       )}
     </label>
+  );
+}
+
+function SocialLinks({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
+  const linkClass =
+    variant === 'dark'
+      ? 'border-white/15 bg-white/10 text-blue-100 hover:border-white/30 hover:bg-white hover:text-navy'
+      : 'border-slate-200 bg-white text-slate-600 hover:border-brand-100 hover:bg-brand-50 hover:text-brand-700';
+
+  return (
+    <div className="flex items-center gap-3" aria-label="Social media links">
+      {socialLinks.map((link, index) => (
+        <a
+          key={link.name}
+          href={link.href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={link.name}
+          className={`${linkClass} grid h-10 w-10 place-items-center rounded-lg border shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md`}
+          style={{ animationDelay: `${index * 90}ms` }}
+        >
+          <SocialIcon icon={link.icon} />
+        </a>
+      ))}
+    </div>
+  );
+}
+
+function SocialIcon({ icon }: { icon: string }) {
+  const commonProps = {
+    className: 'h-4 w-4',
+    viewBox: '0 0 24 24',
+    fill: 'currentColor',
+    'aria-hidden': true,
+  };
+
+  if (icon === 'linkedin') {
+    return (
+      <svg {...commonProps}>
+        <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.5 8h4v15h-4V8Zm7.5 0h3.82v2.05h.05c.53-1 1.84-2.05 3.78-2.05 4.04 0 4.79 2.66 4.79 6.12V23h-4v-7.86c0-1.88-.03-4.29-2.61-4.29-2.62 0-3.02 2.05-3.02 4.16V23h-4V8Z" />
+      </svg>
+    );
+  }
+
+  if (icon === 'facebook') {
+    return (
+      <svg {...commonProps}>
+        <path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.77l-.44 2.91h-2.33V22C18.34 21.24 22 17.08 22 12.06Z" />
+      </svg>
+    );
+  }
+
+  if (icon === 'instagram') {
+    return (
+      <svg {...commonProps}>
+        <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7.25A4.75 4.75 0 1 1 12 16.75 4.75 4.75 0 0 1 12 7.25Zm0 2A2.75 2.75 0 1 0 12 14.75 2.75 2.75 0 0 0 12 9.25Zm5.25-2.38a1.12 1.12 0 1 1-2.25 0 1.12 1.12 0 0 1 2.25 0Z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg {...commonProps}>
+      <path d="M17.53 3h3.07l-6.72 7.68L21.78 21h-6.19l-4.85-6.33L5.2 21H2.12l7.18-8.21L1.72 3H8.1l4.38 5.79L17.53 3Zm-1.08 16.18h1.7L7.18 4.72H5.35l11.1 14.46Z" />
+    </svg>
   );
 }
 
