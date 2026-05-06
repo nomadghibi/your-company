@@ -158,18 +158,18 @@ function App() {
       <main>
         <section id="home" className="overflow-hidden bg-[linear-gradient(180deg,#eff6ff_0%,#ffffff_72%)]">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-16 pt-14 sm:px-6 sm:pb-20 sm:pt-18 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-24">
-            <div>
+            <div className="animate-fade-up">
               <p className="inline-flex rounded-full border border-brand-100 bg-white px-4 py-2 text-sm font-semibold text-brand-700 shadow-sm">
                 Professional websites for service businesses
               </p>
-              <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-tight text-navy sm:text-5xl lg:text-6xl">
+              <h1 className="mt-6 max-w-4xl animate-fade-up text-4xl font-bold leading-tight text-navy [animation-delay:120ms] sm:text-5xl lg:text-6xl">
                 Grow Your Business With a Website That Converts
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              <p className="mt-6 max-w-2xl animate-fade-up text-lg leading-8 text-slate-600 [animation-delay:220ms]">
                 We help small businesses turn visitors into real leads with modern design,
                 clear messaging, and simple contact forms.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-8 flex animate-fade-up flex-col gap-3 [animation-delay:320ms] sm:flex-row">
                 <a
                   href="#contact"
                   className="rounded-lg bg-brand-600 px-6 py-3.5 text-center font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:-translate-y-0.5 hover:bg-brand-700"
@@ -184,7 +184,7 @@ function App() {
                 </a>
               </div>
 
-              <div className="mt-10 grid max-w-xl grid-cols-3 gap-3">
+              <div className="mt-10 grid max-w-xl animate-fade-up grid-cols-3 gap-3 [animation-delay:430ms]">
                 {[
                   ['24h', 'Quote follow-up'],
                   ['100%', 'Mobile ready'],
@@ -205,9 +205,9 @@ function App() {
               </div>
             </div>
 
-            <div className="relative">
+            <div className="relative animate-fade-in [animation-delay:260ms]">
               <div className="absolute -right-10 top-8 h-48 w-48 rounded-full bg-brand-100 blur-3xl" />
-              <div className="relative rounded-2xl border border-slate-200 bg-white p-3 shadow-soft">
+              <div className="relative animate-float rounded-2xl border border-slate-200 bg-white p-3 shadow-soft">
                 <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
                   <div className="flex items-center gap-2 border-b border-slate-200 bg-white px-4 py-3">
                     <span className="h-3 w-3 rounded-full bg-red-300" />
@@ -229,8 +229,8 @@ function App() {
                         {[44, 68, 54, 84, 72, 96, 88].map((height, index) => (
                           <span
                             key={height + index}
-                            className="flex-1 rounded-t-md bg-brand-500"
-                            style={{ height: `${height}%` }}
+                            className="origin-bottom animate-grow-bar flex-1 rounded-t-md bg-brand-500"
+                            style={{ height: `${height}%`, animationDelay: `${index * 90}ms` }}
                           />
                         ))}
                       </div>
@@ -277,7 +277,7 @@ function App() {
               {benefits.map((benefit) => (
                 <article
                   key={benefit.title}
-                  className="rounded-xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-soft"
+                  className="animate-fade-up rounded-xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft"
                 >
                   <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-600">
                     {benefit.metric}
@@ -334,9 +334,9 @@ function App() {
               {services.map((service) => (
                 <article
                   key={service.title}
-                  className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-brand-100 hover:shadow-soft"
+                  className="group animate-fade-up rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-100 hover:shadow-soft"
                 >
-                  <div className="mb-5 h-1.5 w-14 rounded-full bg-brand-600" />
+                  <div className="mb-5 h-1.5 w-14 rounded-full bg-brand-600 transition-all duration-300 group-hover:w-20" />
                   <h3 className="text-lg font-bold text-navy">{service.title}</h3>
                   <p className="mt-3 leading-7 text-slate-600">{service.text}</p>
                 </article>
